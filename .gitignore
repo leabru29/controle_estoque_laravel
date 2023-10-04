@@ -1,3 +1,5 @@
+database/seeders/DatabaseSeeder.php
+.gitignore
 /.phpunit.cache
 /node_modules
 /public/build

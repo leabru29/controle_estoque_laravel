@@ -16,11 +16,11 @@ Siga estas etapas para configurar e executar o sistema em sua máquina local usa
 1. Clone este repositório para o seu ambiente de desenvolvimento:
 
    ```bash
-   git clone https://github.com/seu-usuario/sistema-de-estoque-laravel.git
+   git clone https://github.com/leabru29/controle_estoque_laravel.git
 2. Acesse o diretório do projeto:
 
    ```bash
-   cd sistema-de-estoque-laravel
+   cd controle_estoque_laravel
 3. Copie o arquivo .env.example para .env:
 
    ```bash
@@ -29,11 +29,7 @@ Siga estas etapas para configurar e executar o sistema em sua máquina local usa
 
    ```bash
    ./vendor/bin/sail up
-5. Acesse o contêiner da aplicação Laravel:
+5. Rode o Npm :
 
    ```bash
-   ./vendor/bin/sail shell
-6. Clone este repositório para o seu ambiente de desenvolvimento:
-
-   ```bash
-   git clone https://github.com/seu-usuario/sistema-de-estoque-laravel.git
+   npm install && npm run dev

@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class LocalArmazenamento extends Model
+{
+    use HasFactory;
+
+    protected $table = 'local_armazenamentos';
+
+    protected $fillable = [
+        'local',
+        'cnpj',
+        'telefone',
+        'email',
+        'cep',
+        'logradouro',
+        'numero',
+        'complemento',
+        'bairro',
+        'cidade',
+        'estado',
+        'pais'
+    ];
+}

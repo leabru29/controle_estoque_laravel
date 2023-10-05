@@ -331,27 +331,38 @@ return [
         ], */
         [
             'text'    => 'Cadastros',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-plus-circle',
+            'icon_color' => 'success',
             'submenu' => [
                 [
                     'text' => 'Grupo de Produtos',
-                    'route'  => 'grupo-produto.index',
+                    'route' => 'grupo-produto.index',
+                    'icon' => 'fas fa-layer-group',
+                    'icon_color' => 'primary',
                 ],
                 [
-                    'text'    => 'Produtos',
-                    'route'     => 'produtos.index',
+                    'text' => 'Produtos',
+                    'route' => 'produtos.index',
+                    'icon' => 'fas fa-box',
+                    'icon_color' => 'warning',
                 ],
                 [
                     'text' => 'Unidade de Medida',
                     'route'  => 'unidade-medida.index',
+                    'icon'=> 'fas fa-ruler-combined',
+                    'icon_color' => 'success',
                 ],
                 [
                     'text' => 'Local Armazenamento',
                     'route'  => 'locais.index',
+                    'icon' => 'fas fa-map-marker-alt',
+                    'icon_color' => 'danger',
                 ],
                 [
                     'text' => 'Fornecedores',
                     'route'  => 'fornecedores.index',
+                    'icon' => 'fas fa-user-friends',
+                    'icon_color' => 'ligth',
                 ],
             ],
         ],

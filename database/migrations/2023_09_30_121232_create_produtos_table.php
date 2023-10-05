@@ -13,9 +13,15 @@ return new class extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('cod_item')->nullable()->comment('Codigo do Item');
+            $table->string('lote')->nullable();
             $table->string('produto')->nullable();
-            $table->string('descricao')->nullable();
+            $table->string('descricao');
+            $table->string('princ_ativo')->comment('Principio ativo');
             $table->integer('quant')->nullable();
+            $table->float('volume', 2, 3);
+            $table->date('fabricacao');
+            $table->string('cond_armazenagem');
             $table->date('validade')->nullable();
             $table->float('valor', 8, 2);
             

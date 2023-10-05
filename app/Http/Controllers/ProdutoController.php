@@ -30,7 +30,8 @@ class ProdutoController extends Controller
 
     public function index()
     {
-        return view('cadastros.produtos.index');
+        $produtos = Produto::all();
+        return view('cadastros.produtos.index', compact('produtos'));
     }
 
     /**

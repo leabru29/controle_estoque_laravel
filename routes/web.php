@@ -22,17 +22,19 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('grupo-produto', GrupoProdutoController::class);
-Route::get('list-grupo', [GrupoProdutoController::class, 'listar'])->name('list.grupo');
-
-Route::resource('unidade-medida', UnidadeMedidaController::class);
-Route::get('list-unidade-medida', [UnidadeMedidaController::class, 'listar'])->name('list.unidade.medida');
-
-Route::get('list-fornecedores', [FornecedorController::class, 'listar'])->name('list.fornecedor');
-Route::resource('fornecedores', FornecedorController::class);
-
-Route::get('list-locais', [LocalArmazenamentoController::class, 'listar'])->name('list.locais');
-Route::resource('locais', LocalArmazenamentoController::class);
-
-Route::get('list-produtos', [ProdutoController::class, 'listar'])->name('list.produtos');
-Route::resource('produtos', ProdutoController::class);
+Route::prefix('cadastro')->group(function(){
+    Route::resource('grupo-produto', GrupoProdutoController::class)->middleware('auth');
+    Route::get('list-grupo', [GrupoProdutoController::class, 'listar'])->name('list.grupo')->middleware('auth');
+    
+    Route::resource('unidade-medida', UnidadeMedidaController::class)->middleware('auth');
+    Route::get('list-unidade-medida', [UnidadeMedidaController::class, 'listar'])->name('list.unidade.medida')->middleware('auth');
+    
+    Route::get('list-fornecedores', [FornecedorController::class, 'listar'])->name('list.fornecedor')->middleware('auth');
+    Route::resource('fornecedores', FornecedorController::class);
+    
+    Route::get('list-locais', [LocalArmazenamentoController::class, 'listar'])->name('list.locais')->middleware('auth');
+    Route::resource('locais', LocalArmazenamentoController::class)->middleware('auth');
+    
+    Route::get('list-produtos', [ProdutoController::class, 'listar'])->name('list.produtos')->middleware('auth');
+    Route::resource('produtos', ProdutoController::class)->middleware('auth'); 
+});

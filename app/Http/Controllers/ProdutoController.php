@@ -54,7 +54,7 @@ class ProdutoController extends Controller
     {
         str_replace(',', '.', $request->valor);
         Produto::create($request->all());
-        return redirect('produtos')->with('message', 'Produto cadastro com sucesso!');
+        return redirect()->route('produtos.index')->with('message', 'Produto cadastro com sucesso!');
     }
 
     /**
@@ -85,7 +85,7 @@ class ProdutoController extends Controller
     {
         $produto = Produto::findOrFail($id);
         $produto->update($request->all());
-        return redirect('produtos')->with('message', 'Editado com sucesso!');
+        return redirect()->route('produtos.index')->with('message', 'Editado com sucesso!');
     }
 
     /**

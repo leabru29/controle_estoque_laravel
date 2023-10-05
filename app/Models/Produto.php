@@ -13,34 +13,18 @@ class Produto extends Model
     protected $table = 'produtos';
 
     protected $fillable = [
-        'produto',
+        'cod_item',
+        'lote',
+        'nome',
         'descricao',
-        'quant',
+        'princ_ativo',
+        'cond_armazenagem',
         'valor',
-        'validade',
-        'id_grupo',
-        'id_un',
-        'id_local_armazenamento',
-        'id_fornecedor'
+        'id_grupo'
     ];
 
     public function grupo(): HasOne
     {
         return $this->hasOne(GrupoProduto::class, 'id', 'id_grupo');
-    }
-
-    public function unidade(): HasOne
-    {
-        return $this->hasOne(UnidadeMedida::class, 'id', 'id_un');
-    }
-
-    public function local(): HasOne
-    {
-        return $this->hasOne(LocalArmazenamento::class, 'id', 'id_local_armazenamento');
-    }
-
-    public function fornecedor(): HasOne
-    {
-        return $this->hasOne(Fornecedor::class, 'id', 'id_fornecedor');
     }
 }

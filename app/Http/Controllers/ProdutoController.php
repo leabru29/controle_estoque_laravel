@@ -40,11 +40,8 @@ class ProdutoController extends Controller
     public function create()
     {
         $grupos = GrupoProduto::all();
-        $unidades = UnidadeMedida::all();
-        $fornecedores = Fornecedor::all();
-        $locaisArmazenamento = LocalArmazenamento::all();
-
-        return view('cadastros.produtos.create', compact('grupos', 'unidades', 'locaisArmazenamento', 'fornecedores'));
+        $produto = "";
+        return view('cadastros.produtos.create', compact('grupos', 'produto'));
     }
 
     /**
@@ -71,11 +68,7 @@ class ProdutoController extends Controller
     public function edit(Produto $produto)
     {
         $grupos = GrupoProduto::all();
-        $unidades = UnidadeMedida::all();
-        $fornecedores = Fornecedor::all();
-        $locaisArmazenamento = LocalArmazenamento::all();
-        
-        return view('cadastros.produtos.edit', compact('produto', 'grupos', 'unidades', 'locaisArmazenamento', 'fornecedores'));
+        return view('cadastros.produtos.edit', compact('produto', 'grupos'));
     }
 
     /**

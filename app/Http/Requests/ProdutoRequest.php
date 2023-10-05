@@ -22,15 +22,9 @@ class ProdutoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'produto' => 'required',
-            'descricao' => 'required',
-            'quant' => 'required',
-            'valor' => 'required',
-            'validade' => 'required',
-            'id_grupo' => 'required',
-            'id_un' => 'required',
-            'id_local_armazenamento' => 'required',
-            'id_fornecedor' => 'required'
+            'cod_item' => ['required', 'max:10'],
+            'nome' => ['required', 'max:100'],
+            'id_grupo' => ['required']
         ];
     }
 }

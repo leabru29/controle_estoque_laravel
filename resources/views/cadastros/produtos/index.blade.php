@@ -22,27 +22,24 @@
                     <th width="5%">#Cód</th>
                     <th width="15%">Nome Produto</th>
                     <th width="20%">Descrição</th>
-                    <th width="10%">Validade</th>
-                    <th width="6%">QTD</th>
-                    <th width="6%">Medida</th>
-                    <th width="20%">Ações</th>
+                    <th width="5%">Grupo</th>
+                    <th width="5%">Valor</th>
+                    <th width="5%">Ações</th>
                     <item /tr>
             </thead>
             <tbody>
                 @foreach ($produtos as $produto)
                     <tr>
-                        <td>{{ $produto->id }}</td>
-                        <td>{{ $produto->produto }}</td>
+                        <td>{{ $produto->cod_item }}</td>
+                        <td>{{ $produto->nome }}</td>
                         <td>{{ $produto->descricao }}</td>
-                        <td>{{ date('m/Y', strtotime($produto->validade)) }}</td>
-                        <td>{{ $produto->quant }}</td>
-                        <td>{{ $produto->unidade->sigla }}</td>
+                        <td>{{ $produto->grupo->grupo }}</td>
+                        <td>{{ $produto->valor }}</td>
                         <td>
                             <a href="{{ route('produtos.edit', $produto->id) }}" type="button" id="btn_alterar"
-                                class="btn btn-primary shadow btn-editar"><i class="fas fa-edit"></i>
-                                Editar</a>
+                                class="btn btn-primary shadow btn-editar"><i class="fas fa-edit"></i></a>
                             <button type="button" id="btn_excluir" class="btn btn-danger shadow btn-excluir"
-                                data-id="{{ $produto->id }}"><i class="fas fa-trash-alt"></i> Excluir</button>
+                                data-id="{{ $produto->id }}"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>
                 @endforeach
@@ -56,7 +53,6 @@
 @stop
 
 @section('js')
-    <script src="https://cdn.datatables.net/plug-ins/1.13.6/sorting/date-uk.js"></script>
     <script>
         configCSRF();
 
@@ -66,43 +62,11 @@
                     [3, 'desc']
                 ],
             });
-            /* var columns = [{
-                    data: 'id',
-                    name: 'id'
-                },
-                {
-                    data: 'produto',
-                    name: 'produto'
-                },
-                {
-                    data: 'descricao',
-                    name: 'descricao'
-                },
-                {
-                    data: 'validade',
-                    name: 'validade'
-                },
-                {
-                    data: 'quant',
-                    name: 'quant'
-                },
-                {
-                    data: 'id_un',
-                    name: 'id_un',
-                },
-                {
-                    data: 'acoes',
-                    name: 'acoes'
-                },
-            ];
-            console.log(columns[3]); */
-
-            //listar("#lista_produtos", "{{ route('list.produtos') }}", columns);
         });
 
         $(document).on('click', '.btn-excluir', function(e) {
             var id = $(this).data('id');
-            var url = '{{ url('produtos') }}/' + id;
+            var url = "{{ url('cadastro/produtos') }}/" + id;
             var lista = $('#lista_produtos');
             excluirDados(url, lista);
         });

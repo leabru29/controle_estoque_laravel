@@ -13,46 +13,20 @@ return new class extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('cod_item')->nullable()->comment('Codigo do Item');
-            $table->string('lote')->nullable();
-            $table->string('produto')->nullable();
-            $table->string('descricao');
-            $table->string('princ_ativo')->comment('Principio ativo');
-            $table->integer('quant')->nullable();
-            $table->float('volume', 2, 3);
-            $table->date('fabricacao');
-            $table->string('cond_armazenagem');
-            $table->date('validade')->nullable();
-            $table->float('valor', 8, 2);
-            
+            $table->string('cod_item', 10)->comment('Codigo do Item');
+            $table->string('nome', 100);
+            $table->string('descricao')->nullable();
+            $table->string('princ_ativo')->nullable()->comment('Principio ativo');
+            $table->string('cond_armazenagem')->nullable();
+            $table->float('valor', 8, 2)->nullable();
+
             $table->unsignedBigInteger('id_grupo');
             $table->foreign('id_grupo')
                   ->references('id')
                   ->on('grupo_produtos')
                   ->cascadeOnUpdate()
                   ->cascadeOnDelete();
-            
-            $table->unsignedBigInteger('id_un');
-            $table->foreign('id_un')
-                  ->references('id')
-                  ->on('unidade_medidas')
-                  ->cascadeOnUpdate()
-                  ->cascadeOnDelete();
-            
-            $table->unsignedBigInteger('id_local_armazenamento');
-            $table->foreign('id_local_armazenamento')
-                  ->references('id')
-                  ->on('local_armazenamentos')
-                  ->cascadeOnUpdate()
-                  ->cascadeOnDelete();
-            
-            $table->unsignedBigInteger('id_fornecedor');
-            $table->foreign('id_fornecedor')
-                  ->references('id')
-                  ->on('fornecedores')
-                  ->cascadeOnUpdate()
-                  ->cascadeOnDelete();
-            
+                  
             $table->timestamps();
         });
     }

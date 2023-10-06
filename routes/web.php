@@ -3,6 +3,7 @@
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\GrupoProdutoController;
 use App\Http\Controllers\LocalArmazenamentoController;
+use App\Http\Controllers\Operacoes\EntradaProdutoController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\UnidadeMedidaController;
 use Illuminate\Support\Facades\Route;
@@ -37,4 +38,8 @@ Route::prefix('cadastro')->group(function(){
     
     Route::get('list-produtos', [ProdutoController::class, 'listar'])->name('list.produtos')->middleware('auth');
     Route::resource('produtos', ProdutoController::class)->middleware('auth'); 
+});
+
+Route::prefix('operacoes')->group(function(){
+   Route::resource('entrada-produtos', EntradaProdutoController::class)->middleware('auth'); 
 });

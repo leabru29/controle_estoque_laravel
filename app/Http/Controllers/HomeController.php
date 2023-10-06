@@ -37,13 +37,9 @@ class HomeController extends Controller
 
         $valorTotalEstoque = 0.0;
         foreach($produtos as $produto){
-            $produtoDescricao[] = $produto->produto;
-            $produtoQuantidade[] = $produto->quant;
+            $produtoDescricao[] = $produto->nome;
 
-            $valorTotalEstoque += ($produto->valor * $produto->quant);
         }
-        $nomeProduto = implode("','", $produtoDescricao);
-        $quantidadeProduto = implode(',', $produtoQuantidade);
 
 
         $report = DB::table('produtos')
@@ -57,10 +53,7 @@ class HomeController extends Controller
             $num_produtos[] = $qtdProdPorGrupo->num_produtos;
         }
 
-        $gruposDescricao = implode("','", $grupo);
-        $numPorGrupo = implode(',', $num_produtos);
-
         
-        return view('home', compact('gruposDescricao', 'numPorGrupo', 'nomeProduto', 'quantidadeProduto', 'quantidadeTotalProdutos', 'valorTotalEstoque', 'qtdProdutosVencido'));
+        return view('home', compact('quantidadeTotalProdutos', 'valorTotalEstoque', 'qtdProdutosVencido'));
     }
 }

@@ -42,7 +42,7 @@ class FornecedorController extends Controller
     public function store(FornecedorRequest $request)
     {
         Fornecedor::create($request->all());
-        return redirect('fornecedores')->with('message', 'Cadastrado com sucesso!');
+        return redirect()->route('fornecedores.index')->with('message', 'Cadastrado com sucesso!');
     }
 
     /**
@@ -69,7 +69,7 @@ class FornecedorController extends Controller
     {
         $fornecedor = Fornecedor::findOrFail($id);
         $fornecedor->update($request->all());
-        return redirect('fornecedores')->with('message', 'Editado com sucesso!'); 
+        return redirect()->route('fornecedores.index')->with('message', 'Editado com sucesso!'); 
     }
 
     /**

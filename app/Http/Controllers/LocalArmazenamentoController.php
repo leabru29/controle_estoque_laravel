@@ -35,7 +35,7 @@ class LocalArmazenamentoController extends Controller
     public function store(LocalArmazenamentoRequest $request)
     {
         LocalArmazenamento::create($request->all());
-        return redirect('locais')->with('message', 'Cadastrado com sucesso!');
+        return redirect()->route('locais.index')->with('message', 'Cadastrado com sucesso!');
     }
     
     public function show(LocalArmazenamento $localArmazenamento)
@@ -53,7 +53,7 @@ class LocalArmazenamentoController extends Controller
     {
         $localArmazenamento = LocalArmazenamento::findOrFail($id);
         $localArmazenamento->update($request->all());
-        return redirect('locais')->with('message', 'Editado com sucesso!');
+        return redirect()->route('locais.index')->with('message', 'Editado com sucesso!');
     }
 
     public function destroy($id)

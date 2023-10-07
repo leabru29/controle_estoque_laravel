@@ -9,7 +9,6 @@ use App\Models\LocalArmazenamento;
 use App\Models\Operacoes\EntradaProduto;
 use App\Models\Produto;
 use App\Models\UnidadeMedida;
-use Illuminate\Http\Request;
 
 class EntradaProdutoController extends Controller
 {

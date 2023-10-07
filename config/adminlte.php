@@ -366,6 +366,31 @@ return [
                 ],
             ],
         ],
+        [
+            'text'    => 'Operações',
+            'icon'    => 'fas fa-plus-circle',
+            'icon_color' => 'success',
+            'submenu' => [
+                [
+                    'text' => 'Entrada de Produtos',
+                    'route' => 'entrada-produtos.index',
+                    'icon' => 'fas fa-plus',
+                    'icon_color' => 'primary',
+                ],
+                [
+                    'text' => 'Saída de Produtos',
+                    'url' => '#',
+                    'icon' => 'fas fa-box',
+                    'icon_color' => 'warning',
+                ],
+                [
+                    'text' => 'Inventário',
+                    'url'  => '#',
+                    'icon'=> 'fas fa-ruler-combined',
+                    'icon_color' => 'success',
+                ],
+            ],
+        ],
         /* [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',

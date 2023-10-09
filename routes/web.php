@@ -4,8 +4,10 @@ use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\GrupoProdutoController;
 use App\Http\Controllers\LocalArmazenamentoController;
 use App\Http\Controllers\Operacoes\EntradaProdutoController;
+use App\Http\Controllers\Operacoes\SaidaProdutoController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\UnidadeMedidaController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,4 +44,5 @@ Route::prefix('cadastro')->group(function(){
 
 Route::prefix('operacoes')->group(function(){
    Route::resource('entrada-produtos', EntradaProdutoController::class)->middleware('auth'); 
+   Route::resource('saida-produtos', SaidaProdutoController::class)->middleware('auth'); 
 });

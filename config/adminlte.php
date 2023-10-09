@@ -379,7 +379,7 @@ return [
                 ],
                 [
                     'text' => 'Saída de Produtos',
-                    'url' => '#',
+                    'route' => 'saida-produtos.index',
                     'icon' => 'fas fa-box',
                     'icon_color' => 'warning',
                 ],

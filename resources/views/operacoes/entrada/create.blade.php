@@ -32,6 +32,20 @@
 
 @section('js')
     <script>
-        $(document).ready(function() {});
+        $(document).ready(function() {
+
+            $('#id_produto').change(function(e) {
+                e.preventDefault();
+                var id = $(this).val();
+                var url = "{{ url('cadastro/produtos') }}/" + id;
+                $.get(url, function(data) {
+                    var valorUnitario = data.valor;
+                    $('#quantidade').change(function() {
+                        var quantidade = $(this).val();
+                        $('#valor').val(valorUnitario * quantidade);
+                    });
+                });
+            });
+        });
     </script>
 @stop

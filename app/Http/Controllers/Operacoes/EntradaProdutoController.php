@@ -40,6 +40,7 @@ class EntradaProdutoController extends Controller
     {
         $produto = Produto::findOrFail($request->id_produto);
         $produto->quantidade += $request->quantidade;
+        $produto->valor += $request->valor;
         EntradaProduto::create($request->all());
         $produto->save();
         return redirect()->route('entrada-produtos.index')->with('message', 'Entrada de produto feita com sucesso!' );
@@ -73,6 +74,8 @@ class EntradaProdutoController extends Controller
     {
         $produto = Produto::findOrFail($request->id_produto);
         $produto->quantidade = $request->quantidade;
+        $produto->valor = $produto->valor * $request->quantidade;
+        dd($produto->valor);
         $entradaProduto = EntradaProduto::findOrFail($id);
         $entradaProduto->update($request->all());
         $produto->save();

@@ -25,8 +25,8 @@
             </div>
             <div class="form-group">
                 <label for="quantidade">Quantidade</label>
-                <input type="number" class="form-control @error('quantidade') is-invalid @enderror" id="quantidade"
-                    name="quantidade">
+                <input type="number" class="form-control @error('quantidade') is-invalid @enderror quantidade"
+                    id="quantidade" name="quantidade">
                 @error('quantidade')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -45,7 +45,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="valor">Valor</label>
+                <label for="valor">Valor Total</label>
                 <input type="text" class="form-control @error('valor') is-invalid @enderror" id="valor"
                     name="valor">
                 @error('valor')

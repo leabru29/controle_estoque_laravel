@@ -38,7 +38,10 @@ class EntradaProdutoController extends Controller
      */
     public function store(EntradaProdutoRequest $request)
     {
+        $produto = Produto::findOrFail($request->id_produto);
+        $produto->quantidade += $request->quantidade;
         EntradaProduto::create($request->all());
+        $produto->save();
         return redirect()->route('entrada-produtos.index')->with('message', 'Entrada de produto feita com sucesso!' );
     }
 
@@ -68,8 +71,11 @@ class EntradaProdutoController extends Controller
      */
     public function update(EntradaProdutoRequest $request, $id)
     {
+        $produto = Produto::findOrFail($request->id_produto);
+        $produto->quantidade = $request->quantidade;
         $entradaProduto = EntradaProduto::findOrFail($id);
         $entradaProduto->update($request->all());
+        $produto->save();
         return redirect()->route('entrada-produtos.index')->with('message', 'Entrada de produto feita com sucesso!' );
     }
 
@@ -78,8 +84,10 @@ class EntradaProdutoController extends Controller
      */
     public function destroy(EntradaProduto $entradaProduto)
     {
+        $produto = Produto::findOrFail($entradaProduto->id_produto);
+        $produto->quantidade -= $entradaProduto->quantidade;
         $entradaProduto->deleteOrFail($entradaProduto->id);
-
+        $produto->save();
         return response()->json(['message' => 'Deletado com sucesso!']);
     }
 }

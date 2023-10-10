@@ -20,6 +20,7 @@ class Produto extends Model
         'princ_ativo',
         'cond_armazenagem',
         'valor',
+        'quantidade',
         'id_grupo'
     ];
 

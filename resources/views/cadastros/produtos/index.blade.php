@@ -21,10 +21,10 @@
                 <tr>
                     <th width="5%">#Cód</th>
                     <th width="15%">Nome Produto</th>
-                    <th width="20%">Descrição</th>
-                    <th width="5%">Grupo</th>
+                    <th width="10%">Quantidade</th>
                     <th width="5%">Valor</th>
-                    <th width="5%">Ações</th>
+                    <th width="20%">Grupo</th>
+                    <th width="10%">Ações</th>
                     <item /tr>
             </thead>
             <tbody>
@@ -32,9 +32,9 @@
                     <tr>
                         <td>{{ $produto->cod_item }}</td>
                         <td>{{ $produto->nome }}</td>
-                        <td>{{ $produto->descricao }}</td>
-                        <td>{{ $produto->grupo->grupo }}</td>
+                        <td>{{ $produto->quantidade }}</td>
                         <td>{{ $produto->valor }}</td>
+                        <td>{{ $produto->grupo->grupo }}</td>
                         <td>
                             <a href="{{ route('produtos.edit', $produto->id) }}" type="button" id="btn_alterar"
                                 class="btn btn-primary shadow btn-editar"><i class="fas fa-edit"></i></a>

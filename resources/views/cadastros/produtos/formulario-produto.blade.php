@@ -26,8 +26,6 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
-        </div>
-        <div class="col-6">
             <div class="form-group">
                 <label for="princ_ativo">Princípio Ativo</label>
                 <input type="text" class="form-control @error('princ_ativo') is-invalid @enderror" id="princ_ativo"
@@ -36,12 +34,22 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
+        </div>
+        <div class="col-6">
             <div class="form-group">
                 <label for="cond_armazenagem">Condições de Armazenamento</label>
                 <input type="text" class="form-control @error('cond_armazenagem') is-invalid @enderror"
                     id="cond_armazenagem" name="cond_armazenagem"
                     @if ($produto) value="{{ $produto->cond_armazenagem }}" @endif>
                 @error('cond_armazenagem')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="quantidade">Quantidade</label>
+                <input type="number" class="form-control @error('quantidade') is-invalid @enderror" id="quantidade"
+                    name="quantidade" @if ($produto) value="{{ $produto->quantidade }}" @endif>
+                @error('quantidade')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
@@ -70,6 +78,7 @@
                     @endif
                 </select>
             </div>
+
         </div>
     </div>
 </div>

@@ -32,7 +32,10 @@ class SaidaProdutoController extends Controller
      */
     public function store(Request $request)
     {
+        $produto = Produto::findOrFail($request->id_produto);
+        $produto->quantidade -= $request->quantidade;
         SaidaProduto::create($request->all());
+        $produto->save();
         return redirect()->route('saida-produtos.index')->with('message', 'Saída cadastrada com sucesso!');
     }
 
@@ -60,8 +63,11 @@ class SaidaProdutoController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $produto = Produto::findOrFail($request->id_produto);
+        $produto->quantidade -= $request->quantidade;
         $saidaProduto = SaidaProduto::findOrFail($id);
         $saidaProduto->update($request->all());
+        $produto->save();
         return redirect()->route('saida-produtos.index')->with('message', 'Saída editada com sucesso!');
     }
 
@@ -70,7 +76,10 @@ class SaidaProdutoController extends Controller
      */
     public function destroy(SaidaProduto $saidaProduto)
     {
+        $produto = Produto::findOrFail($saidaProduto->id_produto);
+        $produto->quantidade += $saidaProduto->quantidade;
         $saidaProduto->deleteOrFail($saidaProduto->id);
+        $produto->save();
         return response()->json(['message' => 'Saída excluída com sucesso!']);
     }
 }

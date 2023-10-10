@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('princ_ativo')->nullable()->comment('Principio ativo');
             $table->string('cond_armazenagem')->nullable();
             $table->float('valor', 8, 2)->nullable();
+            $table->integer('quantidade', false, false)->default(0);
 
             $table->unsignedBigInteger('id_grupo');
             $table->foreign('id_grupo')

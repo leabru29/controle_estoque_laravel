@@ -8,7 +8,7 @@
                     name="id_produto">
                     <option value="">Selecione um Produto</option>
                     @foreach ($produtos as $produto)
-                        <option value="{{ $produto->id }}">{{ $produto->nome }}</option>
+                        <option value="{{ $produto->id }}">{{ $produto->cod_item }} | {{ $produto->nome }}</option>
                     @endforeach
                 </select>
                 @error('id_produto')

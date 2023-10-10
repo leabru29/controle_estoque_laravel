@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Cadastro Local de Armazenamento')
+@section('title', 'Registro de Entrada de Produtos')
 
 @section('content_header')
     <section>

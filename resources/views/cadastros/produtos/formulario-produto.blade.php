@@ -70,6 +70,9 @@
                     @enderror
                     @if ($produto)
                         <option value="{{ $produto->id_grupo }}" selected>{{ $produto->grupo->grupo }}</option>
+                        @foreach ($grupos as $grupo)
+                            <option value="{{ $grupo->id }}">{{ $grupo->grupo }}</option>
+                        @endforeach
                     @else
                         <option value="">Selecione um Grupo</option>
                         @foreach ($grupos as $grupo)

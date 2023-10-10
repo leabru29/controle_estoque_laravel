@@ -68,7 +68,7 @@ class ProdutoController extends Controller
     public function edit(Produto $produto)
     {
         $grupos = GrupoProduto::all();
-        return view('cadastros.produtos.edit', compact('produto', 'grupos'));
+        return view('cadastros.produtos.edit', compact('grupos', 'produto'));
     }
 
     /**

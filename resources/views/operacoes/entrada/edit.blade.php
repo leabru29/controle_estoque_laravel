@@ -45,7 +45,6 @@
                 $('#dt_validade').val(response.dt_validade);
                 $('#id_fornecedor').val(response.id_fornecedor);
                 $('#id_local_armazenamento').val(response.id_local_armazenamento);
-                console.log(response);
             });
         });
     </script>
